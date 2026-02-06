@@ -1,0 +1,87 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Pagination page-turn animations (subtle and elegant) */
+.page-flip-enter-right {
+  animation: pageEnterRight 360ms cubic-bezier(0.22, 0.9, 0.36, 1) both;
+}
+.page-flip-exit-left {
+  animation: pageExitLeft 320ms cubic-bezier(0.22, 0.9, 0.36, 1) both;
+}
+.page-flip-enter-left {
+  animation: pageEnterLeft 360ms cubic-bezier(0.22, 0.9, 0.36, 1) both;
+}
+.page-flip-exit-right {
+  animation: pageExitRight 320ms cubic-bezier(0.22, 0.9, 0.36, 1) both;
+}
+
+@keyframes pageEnterRight {
+  0% { transform: translateX(18px) scale(0.995); opacity: 0; filter: blur(2px); }
+  60% { transform: translateX(6px) scale(0.998); opacity: 0.6; filter: blur(1px); }
+  100% { transform: translateX(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+@keyframes pageExitLeft {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateX(-18px) scale(0.995); opacity: 0; filter: blur(2px); }
+}
+
+@keyframes pageEnterLeft {
+  0% { transform: translateX(-18px) scale(0.995); opacity: 0; filter: blur(2px); }
+  60% { transform: translateX(-6px) scale(0.998); opacity: 0.6; filter: blur(1px); }
+  100% { transform: translateX(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+@keyframes pageExitRight {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateX(18px) scale(0.995); opacity: 0; filter: blur(2px); }
+}
+
+/* Ensure grid container clips during animation for a clean effect */
+.page-flip-exit-left,
+.page-flip-exit-right,
+.page-flip-enter-left,
+.page-flip-enter-right {
+  will-change: transform, opacity;
+}
+

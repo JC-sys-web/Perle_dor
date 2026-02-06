@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 38 65% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 25% 95%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 35 15% 93%;
+    --muted-foreground: 30 5% 45%;
+
+    --accent: 38 65% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 38 65% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold: 38 65% 50%;
+    --gold-light: 38 70% 60%;
+    --gold-dark: 38 60% 40%;
+    --cream: 40 40% 96%;
+    --charcoal: 30 10% 15%;
+
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-card: 0 4px 24px -6px rgba(180, 140, 60, 0.1);
+    --shadow-card-hover: 0 12px 36px -8px rgba(180, 140, 60, 0.18);
+    --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark {
+    --background: 25 15% 8%;
+    --foreground: 40 20% 95%;
+    --card: 25 12% 12%;
+    --card-foreground: 40 20% 95%;
+    --popover: 25 12% 12%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 38 65% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 10% 18%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 25 10% 18%;
+    --muted-foreground: 35 10% 60%;
+    --accent: 38 65% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 10% 22%;
+    --input: 25 10% 22%;
+    --ring: 38 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-primary text-primary-foreground hover:bg-gold-light transition-all duration-300 font-medium;
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+  }
+
+  .card-product {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300 hover:shadow-card-hover;
+    box-shadow: var(--shadow-card);
+  }
+
+  .input-elegant {
+    @apply bg-cream border-border focus:border-primary focus:ring-primary/20 transition-all duration-200;
+  }
+
+  .text-gold {
+    @apply text-primary;
+  }
+
+  .bg-gold {
+    @apply bg-primary;
+  }
+
+  /* Book flip animation */
+  @keyframes page-flip-left {
+    0% {
+      transform: perspective(1200px) rotateY(0deg);
+      transform-origin: left center;
+    }
+    100% {
+      transform: perspective(1200px) rotateY(-15deg);
+      transform-origin: left center;
+      opacity: 0;
+    }
+  }
+
+  @keyframes page-flip-right {
+    0% {
+      transform: perspective(1200px) rotateY(0deg);
+      transform-origin: right center;
+    }
+    100% {
+      transform: perspective(1200px) rotateY(15deg);
+      transform-origin: right center;
+      opacity: 0;
+    }
+  }
+
+  @keyframes page-enter-left {
+    0% {
+      transform: perspective(1200px) rotateY(15deg);
+      transform-origin: left center;
+      opacity: 0;
+    }
+    100% {
+      transform: perspective(1200px) rotateY(0deg);
+      transform-origin: left center;
+      opacity: 1;
+    }
+  }
+
+  @keyframes page-enter-right {
+    0% {
+      transform: perspective(1200px) rotateY(-15deg);
+      transform-origin: right center;
+      opacity: 0;
+    }
+    100% {
+      transform: perspective(1200px) rotateY(0deg);
+      transform-origin: right center;
+      opacity: 1;
+    }
+  }
+
+  .page-flip-exit-left {
+    animation: page-flip-left 0.4s ease-in-out forwards;
+  }
+
+  .page-flip-exit-right {
+    animation: page-flip-right 0.4s ease-in-out forwards;
+  }
+
+  .page-flip-enter-left {
+    animation: page-enter-left 0.4s ease-in-out forwards;
+  }
+
+  .page-flip-enter-right {
+    animation: page-enter-right 0.4s ease-in-out forwards;
+  }
+}
