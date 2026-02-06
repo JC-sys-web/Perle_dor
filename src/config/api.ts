@@ -7,7 +7,7 @@
  export const apiConfig = {
    // URL de base de l'API PHP
    // À modifier selon votre environnement de déploiement
-   baseUrl: import.meta.env.VITE_API_URL || 'http://localhost:8000/api',
+   baseUrl: import.meta.env.VITE_API_URL || 'http://172.20.10.2:8000/api',
    
    // Timeout pour les requêtes (en ms)
    timeout: 30000,
