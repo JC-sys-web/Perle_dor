@@ -21,14 +21,7 @@ export function Header({ onAdminClick }: HeaderProps) {
           </div>
         </div>
         
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onAdminClick}
-          className="text-muted-foreground hover:text-primary transition-colors"
-        >
-          <Settings className="w-5 h-5" />
-        </Button>
+    
       </div>
     </header>
   );
