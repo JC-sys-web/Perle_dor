@@ -7,7 +7,7 @@
  export const apiConfig = {
    // URL de base de l'API PHP
    // À modifier selon votre environnement de déploiement
-   baseUrl: import.meta.env.VITE_API_URL || 'http://localhost:8000/api',
+   baseUrl: import.meta.env.VITE_API_URL || 'https://plagiocephalic-reforgeable-sydney.ngrok-free.dev/api',
    
    // Timeout pour les requêtes (en ms)
    timeout: 30000,
